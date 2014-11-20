@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to UnifiedPost</h1>
+    <p>You have successfully signed up to upapp.com</p>
+     <p>Your registration details are:</p>
+     <ul>
+     	<li>First name: <%= @user.first_name %></li>
+     	<li>Last name: <%= @user.last_name %></li>
+     	<li>Email: <%= @user.email %></li>
+     	<li>Country: <%= @user.country %></li>
+     	<li>City: <%= @user.city %></li>
+     </ul>
+
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

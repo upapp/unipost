@@ -1,0 +1,44 @@
+<div id="title_area">UnifiedPost</div>
+<div id="description_area">Test project</div><br /><br />
+
+<div id="text_area"></div><br />
+
+<div id="msg_area"><%= @msg %></div><br />
+
+<%= form_tag( "/new", method: "post", class: "confirm_register" ) do %>
+	<div>
+		<%= label_tag( :firstName, "First name: .... #{@params[0]}" ) %>
+		<%= hidden_field_tag( :firstName, @params[0] ) %>
+	</div>
+	<div>
+		<%= label_tag( :lastName, "Last name: .... #{@params[1]}" ) %>
+		<%= hidden_field_tag( :lastName, @params[1] ) %>
+	</div>
+	<div>
+		<%= label_tag( :email, "Email: ............ #{@params[2]}" ) %>
+		<%= hidden_field_tag( :eMail, @params[2] ) %>
+	</div>
+	<div>
+		<% @country = Country.find(@params[3]['country_id']) %>
+		<% @country.attributes.each do |attr_name, attr_value| %>
+			<% if( attr_name.eql?"name" ) %>
+				<%= label_tag( :country_name, "Country: ......... #{attr_value}" ) %>
+				<%= hidden_field_tag( :country_id, @params[3]['country_id'] ) %>
+			<% end %>
+		<% end %>
+	</div>
+	<div>
+		<% @city = City.find(@params[4]['city_id']) %>
+		<% @city.attributes.each do |attr_name, attr_value| %>
+			<% if( attr_name.eql?"name" ) %>
+				<%= label_tag( :city_name, "City: ................ #{attr_value}" ) %>
+				<%= hidden_field_tag( :city_id, @params[4]['city_id'] ) %>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<br />
+	<%= submit_tag( "Confirm", :id => 'register' ) %>
+<% end %>
+
+
